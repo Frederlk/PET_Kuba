@@ -1,0 +1,77 @@
+//====================================================================================================
+.header {
+	border-bottom: 1px solid hsla(210, 9%, 83%, 0.5);
+	@include adaptiv-value("margin-bottom", 80, 40, 1);
+	&__container {
+	}
+
+	&__menu {
+	}
+}
+.menu {
+	&__icon {
+	}
+
+	&__body {
+	}
+
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+		@media (max-width: $md3+px) {
+			flex-wrap: wrap;
+			margin: 10px 0px 0px 0px;
+		}
+		li {
+			position: relative;
+			padding: 0px 10px 20px 10px;
+			margin: 0px 10px;
+			@media (max-width: $md3+px) {
+				flex: 0 1 20%;
+				margin: 0;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0px 10px 10px 10px;
+			}
+			@media (max-width: 560px) {
+				flex: 0 1 25%;
+			}
+			@media (max-width: $md4+px) {
+				flex: 1 1 auto;
+			}
+			&::after {
+				content: "";
+				transition: all 0.5s ease 0s;
+				position: absolute;
+				width: 0;
+				height: 4px;
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 0px);
+				background: #ecb84c;
+			}
+			@media (min-width: $md2+px) {
+				&:hover {
+					&::after {
+						width: 100%;
+					}
+					.menu__link {
+						color: #4e5665;
+					}
+				}
+			}
+		}
+	}
+
+	&__link {
+		transition: all 0.5s ease 0s;
+		@extend .menu;
+		color: #909090;
+	}
+}
+
+//====================================================================================================
