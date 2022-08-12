@@ -1,16 +1,48 @@
 %ic {
-	font-family: "icons";
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-[class*="_icon-"] {
-	&:before {
-		@extend %ic;
-		display: block;
-	}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+    &:before,
+    &::after {
+        @extend %ic;
+        display: block;
+    }
+}
+
+._icon-youtube:before {
+    content: "\e900";
+    color: #d3d3d3;
+}
+._icon-instagram:before {
+    content: "\e901";
+    color: #d3d3d3;
+}
+._icon-facebook:before {
+    content: "\e902";
+    color: #d3d3d3;
+}
+._icon-text:before {
+    content: "\e903";
+    color: #d3d3d3;
+}
+._icon-arrow-left:before {
+    content: "\e904";
+    color: #fafafa;
+}
+._icon-arrow-right:before {
+    content: "\e905";
+    color: #fafafa;
+}
+._icon-message:before {
+    content: "\e913";
+    color: #d3d3d3;
 }

@@ -1,3 +1,109 @@
-//====================================================================================================
+.footer {
+    background: $light_01;
+    @include adaptiveValue("padding-top", 55, 30, 970, 479.98, 1);
+    @include adaptiveValue("padding-bottom", 30, 20, 970, 479.98, 1);
+    &__row {
+        display: grid;
+        justify-content: center;
+        @include adaptiveValue("margin-bottom", 40, 20, 970, 700, 1);
+        grid-template-columns: 0.9fr 0.9fr 0.9fr 1.3fr;
+        gap: rem(20);
+        @media (max-width: em(700)) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: $mobileSmall) {
+            justify-content: start;
+            gap: rem(10);
+            grid-template-columns: 1fr;
+        }
+    }
 
-//====================================================================================================
+    &__column {
+    }
+
+    &__label {
+        font-weight: 700;
+        @include adaptiveValue("font-size", 15, 16, 767.98, 479.98, 1);
+        line-height: math.div(20, 15);
+        color: $gray_01;
+        @include adaptiveValue("margin-bottom", 20, 10, 970, 479.98, 1);
+        text-transform: uppercase;
+        @media (max-width: $mobileSmall) {
+            transition: color 0.5s ease 0s;
+            width: 100%;
+            position: relative;
+            text-align: left;
+            &::before,
+            &::after {
+                content: "";
+                background-color: $gray_01;
+                top: 50%;
+                transform: translate(0px, -50%);
+                right: 0;
+                position: absolute;
+            }
+            &::before {
+                height: rem(10);
+                width: rem(2);
+                right: rem(4);
+                transition: height 0.5s ease 0s;
+            }
+            &::after {
+                width: rem(10);
+                height: rem(2);
+            }
+            &._spoller-active {
+                color: $primary_01;
+                &::before,
+                &::after {
+                    background-color: $primary_01;
+                }
+                &::before {
+                    height: 0;
+                }
+            }
+        }
+    }
+
+    &__list {
+    }
+
+    &__link {
+        @extend %label;
+        line-height: math.div(19, 14);
+        transition: color 0.5s ease 0s;
+        margin-bottom: rem(8);
+        display: inline-flex;
+        align-items: center;
+        &::before {
+            transition: color 0.5s ease 0s;
+            font-size: rem(16);
+            color: $light_02;
+            margin-right: rem(12);
+        }
+        &._icon-message:before {
+            font-size: rem(13);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary_01;
+                &::before {
+                    color: $primary_01;
+                }
+            }
+        }
+    }
+
+    &__copy {
+        display: flex;
+        justify-content: center;
+        @extend %label;
+        line-height: math.div(19, 14);
+        transition: color 0.5s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primary_01;
+            }
+        }
+    }
+}

@@ -1,1 +1,33 @@
 // Заголовки, общие БЄМ блоки и проче...
+%menu {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 14, 16, 767.98, 479.98, 1);
+    line-height: math.div(19, 14);
+}
+
+%title {
+    font-family: "Georgia";
+    font-size: rem(22);
+    line-height: math.div(38, 32);
+    color: $gray_01;
+}
+
+%text {
+    font-size: rem(16);
+    line-height: math.div(28, 16);
+    color: $gray_02;
+}
+
+%subtitle {
+    font-family: "Georgia";
+    font-size: rem(24);
+    line-height: math.div(25, 24);
+    color: $gray_01;
+}
+
+%label {
+    font-weight: 700;
+    font-size: rem(14);
+    line-height: math.div(28, 14);
+    color: $gray_02;
+}

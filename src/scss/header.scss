@@ -1,56 +1,74 @@
-//====================================================================================================
+.header {
+    border-bottom: rem(1) solid hsla(210, 9%, 83%, 0.5);
+    @include adaptiveValue("margin-bottom", 80, 40, 970, 767.98, 1);
+    &__container {
+    }
 
-//====================================================================================================
-
-//Burger
-/*
-.icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-    	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-   		-webkit-tap-highlight-color: transparent;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+    &__menu {
+    }
 }
-*/
+.menu {
+    &__icon {
+    }
+
+    &__body {
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: rem(20);
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+            margin-top: rem(10);
+        }
+        li {
+            position: relative;
+            padding: 0px rem(10) rem(20) rem(10);
+            margin: 0px rem(10);
+            @media (max-width: $mobile) {
+                flex: 0 1 20%;
+                margin: 0;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0px rem(10) rem(10) rem(10);
+            }
+            @media (max-width: em(560)) {
+                flex: 0 1 25%;
+            }
+            @media (max-width: $mobileSmall) {
+                flex: 1 1 auto;
+            }
+            &::after {
+                content: "";
+                transition: width 0.5s ease 0s;
+                position: absolute;
+                width: 0;
+                height: rem(4);
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0px);
+                background-color: $primary_01;
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    &::after {
+                        width: 100%;
+                    }
+                    .menu__link {
+                        color: $gray_01;
+                    }
+                }
+            }
+        }
+    }
+
+    &__link {
+        transition: color 0.5s ease 0s;
+        @extend %menu;
+        color: $gray_03;
+    }
+}
