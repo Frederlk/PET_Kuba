@@ -1,137 +1,223 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Верстка «NEW_PROJECT_NAME»</title>
-    </head>
-    <body>
-        <div class="rootpage">
-            <h1>«NEW_PROJECT_NAME»</h1>
-            <div class="rootpage__info">Project Features</div>
-            <h2>Pages:</h2>
-            <ol class="rootpage__list">
-                <li><a target="_blank" href="home.html">Home Page</a></li>
-            </ol>
-            <div class="rootpage__contacts">
-                <h2>My contacts:</h2>
-                <p>Email: <a href="mailto:pertrinichshadow@gmail.com">pertrinichshadow@gmail.com</a></p>
-                <p>Phone: <a href="tel:375256474526">+375256474526</a></p>
-                <p>Social network: <a href="">Link to social network</a></p>
-            </div>
-        </div>
-    </body>
-    <style>
-        @charset "UTF-8";
-        @import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700&display=swap");
-        *,
-        *::before,
-        *::after {
-            padding: 0px;
-            margin: 0px;
-            border: 0px;
-            box-sizing: border-box;
-        }
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            min-width: 320px;
-            width: 100%;
-            color: #fff;
-            background-color: #5e5373;
-        }
-        body {
-            font-family: Montserrat;
-            font-size: 100%;
-            line-height: 1;
-            font-size: 1rem;
-        }
-        a {
-            text-decoration: underline;
-            color: #ebe691;
-        }
-        a:visited {
-            text-decoration: underline;
-            color: #aaa768;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        ul li {
-            list-style: none;
-        }
-        img {
-            vertical-align: top;
-        }
-        .wrapper {
-            width: 100%;
-            min-height: 100%;
-            overflow: hidden;
-        }
-        .rootpage {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        @media (max-width: 767px) {
-            .rootpage {
-                padding: 30px 15px;
-            }
-        }
-        h1 {
-            color: #ebe691;
-            font-size: 2.5rem;
-            margin: 0px 0px 1.25rem 0px;
-        }
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 1.85rem;
-                margin: 0px 0px 1.25rem 0px;
-            }
-        }
-        h2 {
-            color: #ebe691;
-            font-size: 1.25rem;
-            margin: 0px 0px 1rem 0px;
-        }
-        @media (max-width: 767px) {
-            h2 {
-                font-size: 1.125rem;
-                margin: 0px 0px 1rem 0px;
-            }
-        }
-        .rootpage__info {
-            line-height: 140%;
-            margin: 0px 0px 1.5rem 0px;
-        }
+<html lang="ru">
+    @@include('html/_head.htm',{ "title":"Kuba" })
 
-        .rootpage__list {
-            margin: 0px 0px 2.25rem 1.25rem;
-        }
-        .rootpage__list li:not(:last-child) {
-            margin: 0px 0px 15px 0px;
-        }
-        .rootpage__contacts,
-        .rootpage__tnx {
-            border-radius: 200px;
-            padding: 20px 65px;
-            line-height: 140%;
-        }
-        @media (max-width: 767px) {
-            .rootpage__contacts,
-            .rootpage__tnx {
-                border-radius: 40px;
-                padding: 20px;
-            }
-        }
-        .rootpage__contacts {
-            background: #32b5a4;
-        }
-        .rootpage__contacts a {
-            color: #ebe691;
-        }
-    </style>
+    <body>
+        <div class="wrapper">
+            <main class="page">
+                <section class="page__home home">
+                    <div class="home__body">
+                        <div class="home__title">
+                            <h1>Куба</h1>
+                        </div>
+                        <div class="home__subtitle">
+                            <h3>Explore the world of Casas & Cadillacs</h3>
+                        </div>
+                    </div>
+                    <div data-fullscreen="" class="home__bg-ibg">
+                        <img src="@img/1.jpg" alt="background" />
+                    </div>
+                </section>
+
+                @@include('html/_header.htm',{})
+
+                <section class="page__why why">
+                    <div class="why__container">
+                        <div class="why__top">
+                            <h2 class="why__title">Почему тебе понравится отпуск на Кубе?</h2>
+                            <p class="why__text">
+                                Куба всегда была привлекательна. Я люблю ее за уникальность, креативность и
+                                дух выживания. Я люблю Кубу потому, что несмотря на 60 лет неудач, она
+                                остается оптимистичным и открытым местом. Пройдите по улице с кубинским
+                                другом, и в одном квартале вы получите пять рукопожатий, четыре поцелуя, три
+                                приветствия «Диме Хермано!» И по крайней мере два приглашения в чей-то дом.
+                            </p>
+                            <a href="#" class="why__btn">Read More ››</a>
+                        </div>
+                        <div class="why__bottom" data-watch data-watch-once id="count-up">
+                            <div class="why__item">
+                                <div class="why__img">
+                                    <img src="@img/route.png" alt="путь" />
+                                </div>
+                                <div class="why__label" id="trips">0</div>
+                                <div class="why__sublabel">Trips</div>
+                            </div>
+                            <div class="why__item">
+                                <div class="why__img">
+                                    <img src="@img/restaurant.png" alt="рестораны" />
+                                </div>
+                                <div class="why__label" id="venues">0</div>
+                                <div class="why__sublabel">Venues</div>
+                            </div>
+                            <div class="why__item">
+                                <div class="why__img">
+                                    <img src="@img/transport.png" alt="продано билетов" />
+                                </div>
+                                <div class="why__label" id="tickets">0</div>
+                                <div class="why__sublabel">Tickets Sold</div>
+                            </div>
+                            <div class="why__item">
+                                <div class="why__img">
+                                    <img src="@img/interface.png" alt="отзывы" />
+                                </div>
+                                <div class="why__label" id="reviews">0</div>
+                                <div class="why__sublabel">Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="page__about about">
+                    <div class="about__container">
+                        <div class="about__top">
+                            <h2 class="about__title">Куба - это...</h2>
+                            <p class="about__text">
+                                Куба похожа на принца в плаще бедняка; за иногда ветхими фасадами
+                                задерживается золотая пыль. Именно эти богатые дихотомии делают путешествие
+                                здесь захватывающим. В этой стране, застрявшей во временном перекосе и
+                                шокирующей экономическим эмбарго, которое длилось более полувека, вы можете
+                                распрощаться с повседневными предположениями и ожидать неожиданностей.
+                            </p>
+                        </div>
+                        <div class="about__bottom">
+                            <div class="about__row">
+                                <div class="about__info info-about">
+                                    <div class="info-about__body">
+                                        <div class="info-about__inner">
+                                            <span class="info-about__span-top"></span>
+                                            <h3 class="info-about__title">Историческое наследие</h3>
+                                            <p class="info-about__text">
+                                                Без современных вмешательств колониальные города Кубы не
+                                                сильно изменились с тех пор, как мушкетные пираты преследовали
+                                                Карибский бассейн. Атмосфера и архитектура особенно волнуют
+                                                Гавану, Тринидад и Камагуэй, где грандиозные площади и мощеные
+                                                улицы рассказывают сказки о богатстве и интригах.
+                                            </p>
+                                            <span class="info-about__span-bottom"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about__picture about__row_row-first">
+                                    <div class="about__image-ibg">
+                                        <img src="@img/2.jpg" alt="Куба" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about__row about__row_row-second">
+                                <div class="about__picture">
+                                    <div class="about__image-ibg">
+                                        <img src="@img/3.jpg" alt="Пляж" />
+                                    </div>
+                                </div>
+                                <div class="about__info info-about">
+                                    <div class="info-about__body">
+                                        <div class="info-about__inner">
+                                            <span class="info-about__span-top"></span>
+                                            <h3 class="info-about__title">Удивительные пляжи</h3>
+                                            <p class="info-about__text">
+                                                Неважно, останавливаетесь ли вы в роскошном отеле в Гаване или
+                                                изучаете сельское очарование Виньялес. Не пропустите пляжный
+                                                курортный город Варадеро, этот пляжный рай по-прежнему следует
+                                                рассматривать как часть ваших кубинских планов путешествий.
+                                            </p>
+                                            <span class="info-about__span-bottom"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="page__cadilac cadilac">
+                    <div class="cadilac__container">
+                        <h2 class="cadilac__title">Кубинский Кадиллак</h2>
+                        <div class="cadilac__image">
+                            <div class="cadilac__picture">
+                                <img src="@img/4.png" alt="Кадиллак" />
+                            </div>
+                            <div class="cadilac__items">
+                                <div class="cadilac__item cadilac__item_1">
+                                    <button type="button" class="cadilac__dot"></button>
+                                    <span class="cadilac__line">
+                                        <img src="@img/line.png" alt="линия" />
+                                    </span>
+                                    <span class="cadilac__item-text">Эмалевая Краска</span>
+                                </div>
+                                <div class="cadilac__item cadilac__item_2">
+                                    <button type="button" class="cadilac__dot"></button>
+                                    <span class="cadilac__line">
+                                        <img src="@img/line.png" alt="линия" />
+                                    </span>
+                                    <span class="cadilac__item-text">Двери</span>
+                                </div>
+                                <div class="cadilac__item cadilac__item_3 _active">
+                                    <button type="button" class="cadilac__dot"></button>
+                                    <span class="cadilac__line">
+                                        <img src="@img/line.png" alt="линия" />
+                                    </span>
+                                    <span class="cadilac__item-text">Откидная крыша</span>
+                                </div>
+                                <div class="cadilac__item cadilac__item_4">
+                                    <button type="button" class="cadilac__dot"></button>
+                                    <span class="cadilac__line">
+                                        <img src="@img/line.png" alt="линия" />
+                                    </span>
+                                    <span class="cadilac__item-text">Костомные колеса</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="cadilac__text">
+                            Американское торговое эмбарго с Кубой в 1960 году привело к немедленному отделению
+                            тысяч автомобилей 1940-х и 1950-х годов, построенных в Детройте от их запасных
+                            частей. Кабриолеты всегда были популярны благодаря круглогодичной тропической
+                            погоде. Не упустите место для фотосессии в Гаване. Площадь вокруг Капитолия -
+                            лестная копия здания Капитолия в Вашингтоне, в дневное время украшены 50-летними
+                            американскими автомобилями.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="page__slider slider">
+                    <div class="slider__container">
+                        <div class="slider__top">
+                            <h2 class="slider__title">Куба в фото</h2>
+                            <p class="slider__text">
+                                Когда вы думаете о Карибском море, вы, вероятно, думаете о Кубе. Это одинокая
+                                акация, вырисовывающаяся на фоне горизонта, уходящего в вечность. Это снежная
+                                гора почти на экваторе и в пределах видимости суровых пустынь. Это пышная,
+                                покрытая пальмами береговая линия океана, это Великая рифтовая долина, которая
+                                когда-то угрожала разорвать континент на части, и это густые леса,
+                                напоминающие сердце континента.
+                            </p>
+                        </div>
+                        <div class="slider__bottom">
+                            <div class="slider__swiper swiper">
+                                <div class="slider__wrapper swiper-wrapper">
+                                    <div class="slider__slide-ibg swiper-slide">
+                                        <img src="@img/6.jpg" alt="куба" />
+                                    </div>
+                                    <div class="slider__slide-ibg swiper-slide">
+                                        <img src="@img/5.jpg" alt="куба" />
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="slider__navigation">
+                                <button
+                                    type="button"
+                                    class="slider__arrow slider__arrow_prev _icon-arrow-left"
+                                ></button>
+                                <button
+                                    type="button"
+                                    class="slider__arrow slider__arrow_next _icon-arrow-right"
+                                ></button>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.htm',{})
+        </div>
+        @@include('html/_js.htm',{})
+    </body>
 </html>

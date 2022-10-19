@@ -1,6 +1,4 @@
 // Подключение списка активных модулей
-import { flsModules } from "./modules.js";
-
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 export function isWebp() {
     // Проверка поддержки webp
@@ -36,12 +34,19 @@ export let isMobile = {
         return navigator.userAgent.match(/IEMobile/i);
     },
     any: function () {
-        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+        return (
+            isMobile.Android() ||
+            isMobile.BlackBerry() ||
+            isMobile.iOS() ||
+            isMobile.Opera() ||
+            isMobile.Windows()
+        );
     },
 };
 
 // Учет плавающей панели на мобильных устройствах при 100vh
 export function fullVHfix() {
+    isMobile.any() && document.documentElement.classList.add("touch");
     const fullScreens = document.querySelectorAll("[data-fullscreen]");
     if (fullScreens.length && isMobile.any()) {
         window.addEventListener("resize", fixHeight);
@@ -134,10 +139,6 @@ export let _slideToggle = (target, duration = 500) => {
 };
 
 // Модуль работы со спойлерами =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-spojlery.html      
-Сниппет (HTML): spollers
-*/
 export function spollers() {
     const spollersArray = document.querySelectorAll("[data-spollers]");
     if (spollersArray.length > 0) {
@@ -179,7 +180,9 @@ export function spollers() {
         function initSpollerBody(spollersBlock, hideSpollerBody = true) {
             let spollerTitles = spollersBlock.querySelectorAll("[data-spoller]");
             if (spollerTitles.length) {
-                spollerTitles = Array.from(spollerTitles).filter((item) => item.closest("[data-spollers]") === spollersBlock);
+                spollerTitles = Array.from(spollerTitles).filter(
+                    (item) => item.closest("[data-spollers]") === spollersBlock
+                );
                 spollerTitles.forEach((spollerTitle) => {
                     if (hideSpollerBody) {
                         spollerTitle.removeAttribute("tabindex");
@@ -199,7 +202,9 @@ export function spollers() {
                 const spollerTitle = el.closest("[data-spoller]");
                 const spollersBlock = spollerTitle.closest("[data-spollers]");
                 const oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
-                const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+                const spollerSpeed = spollersBlock.dataset.spollersSpeed
+                    ? parseInt(spollersBlock.dataset.spollersSpeed)
+                    : 500;
                 if (!spollersBlock.querySelectorAll("._slide").length) {
                     if (oneSpoller && !spollerTitle.classList.contains("_spoller-active")) {
                         hideSpollersBody(spollersBlock);
@@ -212,7 +217,9 @@ export function spollers() {
         }
         function hideSpollersBody(spollersBlock) {
             const spollerActiveTitle = spollersBlock.querySelector("[data-spoller]._spoller-active");
-            const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+            const spollerSpeed = spollersBlock.dataset.spollersSpeed
+                ? parseInt(spollersBlock.dataset.spollersSpeed)
+                : 500;
             if (spollerActiveTitle && !spollersBlock.querySelectorAll("._slide").length) {
                 spollerActiveTitle.classList.remove("_spoller-active");
                 _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
